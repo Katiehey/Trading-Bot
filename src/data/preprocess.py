@@ -1,5 +1,6 @@
 #Clean & Prepare Market Data
 import pandas as pd
+from src.features.technical import add_technical_features
 
 def load_raw_data(path: str) -> pd.DataFrame:
     df = pd.read_parquet(path)
@@ -35,6 +36,10 @@ def prepare_dataset(raw_path: str, output_path: str):
     df = clean_ohlcv(df)
     df = add_returns(df)
     df = df.dropna()
+
+    df = add_technical_features(df)
+    df = df.dropna()
+
 
     df.to_parquet(output_path, index=False)
     print(f"Saved clean dataset → {output_path}")

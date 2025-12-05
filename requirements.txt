@@ -8,3 +8,5 @@ pyyaml
 pytest
 python-dotenv
 pyarrow
+pandas-ta
+seaborn
