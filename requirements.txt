@@ -7,3 +7,4 @@ scikit-learn
 pyyaml
 pytest
 python-dotenv
+pyarrow
