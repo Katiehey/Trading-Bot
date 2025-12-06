@@ -16,6 +16,7 @@
 
 import numpy as np
 import pandas as pd
+from src.bot.risk import volatility_target_position
 
 def ma_crossover_strategy(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
@@ -37,9 +38,11 @@ def ma_crossover_strategy(df: pd.DataFrame) -> pd.DataFrame:
     df.loc[df['crossover'], 'signal'] = 1  # Buy signal
     df.loc[df['crossunder'], 'signal'] = -1 # Sell/Short signal
     
+    size = volatility_target_position(df)#after creating the function in risk.py, we can call it here to get position sizing based on volatility.
+
     # 5. Determine Position: Position holds the last non-zero signal
     # This carries the signal forward until the next crossover event.
-    df['position'] = df['signal'].replace(to_replace=0, method='ffill').shift(1).fillna(0)
+    df['position'] = df['signal'].replace(to_replace=0, method='ffill').shift(1).fillna(0) * size
     
     # 6. Calculate Returns (Assuming 'return' column exists)
     df["strategy_return"] = df["position"] * df["return"]
