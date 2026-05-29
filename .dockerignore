@@ -1,0 +1,13 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+logs/
+data/
+.vscode/
+.git
+runtime/
+backups/
+trading-bot.pem
+trading bot.pem

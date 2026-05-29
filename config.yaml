@@ -1,0 +1,21 @@
+app:
+  mode: paper
+  symbol: "BTC/USDT"
+  timeframe: "1h"
+  candle_limit: 200
+  poll_interval: 3600
+
+risk:
+  max_daily_loss_pct: 0.03
+  max_drawdown_pct: 0.20
+  risk_per_trade_pct: 0.01
+  cooldown_after_losses: 3
+
+exchange:
+  name: "binance"
+  testnet: true
+
+strategy:
+  name: "ma_crossover"
+  fast_ma: 12
+  slow_ma: 26

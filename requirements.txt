@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+ccxt
+ta
+scikit-learn
+pyyaml
+pytest
+python-dotenv
+pyarrow
+pandas-ta
+seaborn

@@ -1,0 +1,16 @@
+symbol: BTC/USDT
+timeframe: 1h
+
+strategy:
+  fast_ema: 12
+  slow_ema: 26
+
+risk:
+  target_vol: 0.02
+  max_drawdown: -0.25
+  risk_per_trade_pct: 0.01
+
+execution:
+  trade_size: 0.001
+  fee_rate: 0.00075
+  slippage: 0.0005
